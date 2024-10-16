@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2024_10_11"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         WindowStyle="None"
         Title="OSD快捷键设置"
@@ -19,13 +20,13 @@
             GlassFrameThickness="0"
             UseAeroCaptionButtons="True" />
     </WindowChrome.WindowChrome>
-        
+
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180px" />
             <ColumnDefinition Width="440px" />
         </Grid.ColumnDefinitions>
-        
+
         <!-- 第一列背景 -->
         <Border Background="#EFF4F7" Grid.Column="0">
         </Border>
@@ -33,8 +34,8 @@
         <!-- 第二列背景 -->
         <Border Background="#FFFFFF" Grid.Column="1">
         </Border>
-        
-        
+
+
         <StackPanel Grid.Column="0"  Margin="20" >
             <!-- 图标和文字水平对齐 -->
             <StackPanel Orientation="Horizontal">
@@ -62,7 +63,6 @@
 
                 <Button Height="40" Width="140" Grid.Row="0" HorizontalAlignment="Center" Style="{StaticResource RoundedButtonStyle}">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-
                         <svg:SvgViewbox Width="16" Height="16" Source="pack://application:,,,/OSD选中.svg" Margin="0,0,6,0"/>
                         <TextBlock Text="OSD快捷键设置" VerticalAlignment="Center"/>
                     </StackPanel>
@@ -89,20 +89,48 @@
                     <RowDefinition Height="48"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="16"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" Text="OSD快捷键设置" FontSize="16" Margin="0" />
-                <TextBlock Grid.Row="3" Text="设置Teams OSD快捷键的行为，如需进行自定义，请在下方列表内进行选择" Foreground="#991C1E23" />
+                <TextBlock Grid.Row="2" Text="设置Teams OSD快捷键的行为，如需进行自定义，请在下方列表内进行选择" FontSize="12" Foreground="#991C1E23" LineHeight="16" />
+                <Grid  Grid.Row="4">
+                    <!--组件外灰色边框-->
+                    <Border CornerRadius="8" BorderBrush="#DBE0E6" BorderThickness="1" Padding="16,4" >
+                        <ItemsControl>
+                            <!-- 数据模板定义每一个项的显示内容 -->
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton GroupName="OSDOptions" Content="{Binding}" IsChecked="{Binding Path=IsChecked}"/>
+                                    </StackPanel>
+                                    <Separator Width="324" Height="0.5" Background="#DBE0E6"/>
+                                        </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
 
-                <StackPanel Grid.Row="5" Orientation="Vertical" Margin="16,4">
-                    <RadioButton GroupName="OSDOptions" Content="Teams" IsChecked="True" VerticalAlignment="Center" Margin="0,5,0,5"/>
-                    <RadioButton GroupName="OSDOptions" Content="Lenovo Display Control Center" VerticalAlignment="Center" Margin="0,5,0,5"/>
-                    <RadioButton GroupName="OSDOptions" Content="Lenovo Accessories and Display Manager" VerticalAlignment="Center" Margin="0,5,0,5"/>
-                    <RadioButton GroupName="OSDOptions" Content="联想智慧软件" VerticalAlignment="Center" Margin="0,5,0,5"/>
-                </StackPanel>
+                            <!-- 数据源：x:Array 是一个字符串数组，提供数据项 -->
+                            <ItemsControl.ItemsSource>
+                                <x:Array Type="{x:Type sys:String}">
+                                    <sys:String>Teams</sys:String>
+                                    <sys:String>Lenovo Display Control Center</sys:String>
+                                    <sys:String>Lenovo Accessories and Display Manager</sys:String>
+                                    <sys:String>联想智慧软件</sys:String>
+                                </x:Array>
+                            </ItemsControl.ItemsSource>
 
+                            <!-- 设置每个项的样式 -->
+                            <ItemsControl.ItemContainerStyle>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="Margin" Value="0,12"/>
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                        </ItemsControl>
+
+                    </Border>
+                </Grid>
             </Grid>
         </StackPanel>
     </Grid>
