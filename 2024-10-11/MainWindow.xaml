@@ -23,7 +23,7 @@
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180px" />
-            <ColumnDefinition Width="520px" />
+            <ColumnDefinition Width="440px" />
         </Grid.ColumnDefinitions>
         
         <!-- 第一列背景 -->
@@ -82,13 +82,28 @@
         </StackPanel>
 
 
-        <StackPanel Grid.Column="1" Margin="10,10,10,10" Grid.ColumnSpan="2">
-            <TextBlock Text="OSD快捷键设置" FontSize="14" FontWeight="Bold" Margin="0 0 0 10"/>
-            <TextBlock Text="设置Teams OSD快捷键的行为，如需进行自定义，请在下方列表内进行选择" TextWrapping="Wrap" Margin="0 0 0 20"/>
-            <RadioButton GroupName="OSDOptions" Content="Teams" IsChecked="True" Margin="0 10 0 0"/>
-            <RadioButton GroupName="OSDOptions" Content="Lenovo Display Control Center" Margin="0 10 0 0"/>
-            <RadioButton GroupName="OSDOptions" Content="Lenovo Accessories and Display Manager" Margin="0 10 0 0"/>
-            <RadioButton GroupName="OSDOptions" Content="联想智慧软件" Margin="0 10 0 0"/>
+        <StackPanel Grid.Column="1" >
+            <Grid Margin="20,16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="OSD快捷键设置" FontSize="16" Margin="0" />
+                <TextBlock Grid.Row="3" Text="设置Teams OSD快捷键的行为，如需进行自定义，请在下方列表内进行选择" Foreground="#991C1E23" />
+
+                <StackPanel Grid.Row="5" Orientation="Vertical" Margin="16,4">
+                    <RadioButton GroupName="OSDOptions" Content="Teams" IsChecked="True" VerticalAlignment="Center" Margin="0,5,0,5"/>
+                    <RadioButton GroupName="OSDOptions" Content="Lenovo Display Control Center" VerticalAlignment="Center" Margin="0,5,0,5"/>
+                    <RadioButton GroupName="OSDOptions" Content="Lenovo Accessories and Display Manager" VerticalAlignment="Center" Margin="0,5,0,5"/>
+                    <RadioButton GroupName="OSDOptions" Content="联想智慧软件" VerticalAlignment="Center" Margin="0,5,0,5"/>
+                </StackPanel>
+
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>
