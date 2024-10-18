@@ -99,18 +99,30 @@
                 <Grid  Grid.Row="4">
                     <!--组件外灰色边框-->
                     <Border CornerRadius="8" BorderBrush="#DBE0E6" BorderThickness="1" Padding="16,4" Grid.ColumnSpan="2" >
-                        <ItemsControl>
+                        <ItemsControl Name="itemsControl" AlternationCount="1000">
                             <!-- 数据模板定义每一个项的显示内容 -->
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>
+                                        <Separator Width="324" Height="0.5" Background="#DBE0E6">
+                                            <Separator.Style>
+                                                <Style TargetType="Separator">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Separator.Style>
+                                        </Separator>
                                         <StackPanel Orientation="Horizontal" Margin="0,12">
                                             <RadioButton GroupName="OSDOptions" Content="{Binding}"  IsChecked="{Binding Path=IsChecked}"/>
                                         </StackPanel>
-                                        <Separator Width="324" Height="0.5" Background="#DBE0E6" />
                                     </StackPanel>
+
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
+
 
                             <!-- 数据源：x:Array 是一个字符串数组，提供数据项 -->
                             <ItemsControl.ItemsSource>
