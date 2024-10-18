@@ -83,7 +83,7 @@
 
 
         <StackPanel Grid.Column="1"  >
-            <Grid Margin="20,16" ShowGridLines="True">
+            <Grid Margin="20,16" ShowGridLines="False">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="48"/>
@@ -115,7 +115,7 @@
                                                 </Style>
                                             </Separator.Style>
                                         </Separator>
-                                        <StackPanel Orientation="Horizontal" Margin="0,12">
+                                        <StackPanel>
                                             <RadioButton GroupName="OSDOptions" Content="{Binding}"  IsChecked="{Binding Path=IsChecked}"/>
                                         </StackPanel>
                                     </StackPanel>

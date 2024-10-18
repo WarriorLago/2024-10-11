@@ -44,4 +44,53 @@
         </Setter>
     </Style>
 
+    <Style TargetType="RadioButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <StackPanel  Orientation="Horizontal" >
+                        <!-- 圆形按钮 -->
+                        <Border x:Name="circle"
+                                    BorderBrush="#DBE0E6"
+                                    BorderThickness="2"
+                                    CornerRadius="8"
+                                    VerticalAlignment="Center">
+                            <Grid>
+                                <Ellipse x:Name="circleFill" Width="14" Height="14" />
+                                <Ellipse x:Name="innerCircle" Width="7" Height="7" Fill="White"/>
+                            </Grid>
+                        </Border>
+
+                        <!-- 图标和文字 -->
+                        <StackPanel Orientation="Horizontal" Margin="10,12,0,12">
+                            <!-- 图标 -->
+                            <Image Source="/path_to_your_image/teams.png" Width="22" Height="22" />
+                            <!-- 文本 -->
+                            <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" FontSize="16"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- 触发器 -->
+                    <ControlTemplate.Triggers>
+                        <!-- 未选中状态 -->
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="circleFill" Property="Fill" Value="White" />
+                        </Trigger>
+                        <!-- 选中状态 -->
+                        <Trigger Property="IsChecked" Value="True">
+                            
+                            <Setter TargetName="circleFill" Property="Fill" Value="#0D59EF" />
+                            <Setter TargetName="circle" Property="BorderBrush" Value="#0D59EF" />
+                            <Setter TargetName="innerCircle" Property="Fill" Value="White"/>
+                        </Trigger>
+                        <!-- 鼠标悬停时的效果 -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="circle" Property="Background" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
