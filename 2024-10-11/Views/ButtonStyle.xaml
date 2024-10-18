@@ -64,7 +64,7 @@
                         <!-- 图标和文字 -->
                         <StackPanel Orientation="Horizontal" Margin="10,12,0,12">
                             <!-- 图标 -->
-                            <Image Source="/path_to_your_image/teams.png" Width="22" Height="22" />
+                            <Image Source=".//Resources/image14.png" Width="22" Height="22" />
                             <!-- 文本 -->
                             <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" FontSize="16"/>
                         </StackPanel>
@@ -78,7 +78,6 @@
                         </Trigger>
                         <!-- 选中状态 -->
                         <Trigger Property="IsChecked" Value="True">
-                            
                             <Setter TargetName="circleFill" Property="Fill" Value="#0D59EF" />
                             <Setter TargetName="circle" Property="BorderBrush" Value="#0D59EF" />
                             <Setter TargetName="innerCircle" Property="Fill" Value="White"/>
