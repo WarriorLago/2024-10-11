@@ -12,13 +12,17 @@
   <ItemGroup>
     <None Remove="Frame_未选中.svg" />
     <None Remove="OSD选中.svg" />
+    <None Remove="Resources\1.png" />
+    <None Remove="Resources\2.png" />
+    <None Remove="Resources\3.png" />
+    <None Remove="Resources\4.jpg" />
+    <None Remove="Resources\关闭.jpg" />
     <None Remove="设置.png" />
     <None Remove="设置.svg" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ViewModels\" />
-    <Folder Include="Model\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +32,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\1.png" />
+    <Resource Include="Resources\2.png" />
+    <Resource Include="Resources\3.png" />
+    <Resource Include="Resources\4.jpg" />
+    <Resource Include="Resources\关闭.jpg" />
     <Resource Include="Resources\设置.png" />
     <Resource Include="Resources\Frame_未选中.svg" />
     <Resource Include="Resources\OSD选中.svg" />

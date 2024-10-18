@@ -64,14 +64,14 @@
                 <Button Height="40" Width="140" Grid.Row="0" HorizontalAlignment="Center" Style="{StaticResource RoundedButtonStyle}">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <svg:SvgViewbox Width="16" Height="16" Source="pack://application:,,,/Resources/OSD选中.svg" Margin="0,0,6,0"/>
-                        <TextBlock Text="OSD快捷键设置" VerticalAlignment="Center"/>
+                        <TextBlock Text="OSD快捷键设置" VerticalAlignment="Center" Foreground="#FF1C1E23"/>
                     </StackPanel>
                 </Button>
 
                 <Button Height="40" Width="140" Grid.Row="2" HorizontalAlignment="Center" Style="{StaticResource TransparentRoundedButtonStyle}">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <svg:SvgViewbox Width="16" Height="16" Source="pack://application:,,,/Resources/Frame_未选中.svg" Margin="0,0,6,0"/>
-                        <TextBlock Text="OSD变动提醒" VerticalAlignment="Center"/>
+                        <TextBlock Text="OSD变动提醒" VerticalAlignment="Center" Foreground="#991C1E23"/>
                     </StackPanel>
                 </Button>
 
@@ -93,13 +93,16 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Text="OSD快捷键设置" FontSize="16" Margin="0" HorizontalAlignment="Left"/>
-                <Button  Grid.Row="0"  FontSize="16"  HorizontalAlignment="Right"  />
+                <TextBlock Grid.Row="0" Text="OSD快捷键设置" FontSize="16" Margin="0" HorizontalAlignment="Left" Foreground="#CC1C1E23"/>
+                <Button Grid.Row="0" HorizontalAlignment="Right" Height="24" Width="24"  Background="Transparent" BorderThickness="0" Click="CloseButton_Click">
+                    <Image Source="pack://application:,,,/Resources/关闭.jpg" />
+                </Button>
+
                 <TextBlock Grid.Row="2" Text="设置Teams OSD快捷键的行为，如需进行自定义，请在下方列表内进行选择" Foreground="#991C1E23" LineHeight="16" FontFamily="Microsoft YaHei" FontSize="11.9" />
                 <Grid  Grid.Row="4">
                     <!--组件外灰色边框-->
                     <Border CornerRadius="8" BorderBrush="#DBE0E6" BorderThickness="1" Padding="16,4" Grid.ColumnSpan="2" >
-                        <ItemsControl Name="itemsControl" AlternationCount="1000">
+                        <ItemsControl Name="itemsControl" ItemsSource="{Binding}">
                             <!-- 数据模板定义每一个项的显示内容 -->
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
@@ -116,7 +119,7 @@
                                             </Separator.Style>
                                         </Separator>
                                         <StackPanel>
-                                            <RadioButton GroupName="OSDOptions" Content="{Binding}"  IsChecked="{Binding Path=IsChecked}"/>
+                                            <RadioButton GroupName="OSDOptions" Content="{Binding Name}"  IsChecked="{Binding IsChecked}"/>
                                         </StackPanel>
                                     </StackPanel>
 
@@ -124,15 +127,6 @@
                             </ItemsControl.ItemTemplate>
 
 
-                            <!-- 数据源：x:Array 是一个字符串数组，提供数据项 -->
-                            <ItemsControl.ItemsSource>
-                                <x:Array Type="{x:Type sys:String}">
-                                    <sys:String>Teams</sys:String>
-                                    <sys:String>Lenovo Display Control Center</sys:String>
-                                    <sys:String>Lenovo Accessories and Display Manager</sys:String>
-                                    <sys:String>联想智慧软件</sys:String>
-                                </x:Array>
-                            </ItemsControl.ItemsSource>
 
 
                         </ItemsControl>
