@@ -28,5 +28,8 @@ namespace _2024_10_11
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
         }
+
+
+
     }
 }

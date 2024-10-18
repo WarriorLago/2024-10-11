@@ -18,8 +18,7 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
-    <Folder Include="新文件夹\" />
+    <Folder Include="Model\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,10 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="设置.png" />
-    <Resource Include="Frame_未选中.svg" />
-    <Resource Include="OSD选中.svg" />
-    <Resource Include="设置.svg" />
+    <Resource Include="Resources\设置.png" />
+    <Resource Include="Resources\Frame_未选中.svg" />
+    <Resource Include="Resources\OSD选中.svg" />
+    <Resource Include="Resources\设置.svg" />
   </ItemGroup>
 
 </Project>
