@@ -44,7 +44,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="RadioButton">
+    <Style x:Key="radioButtonStyle"  TargetType="RadioButton">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">

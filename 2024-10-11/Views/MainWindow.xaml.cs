@@ -32,13 +32,19 @@ namespace _2024_10_11
 
             this.DataContext = items;
 
+
+
         }
+
+
+
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             // 关闭当前窗口
             this.Close();
         }
+
 
     }
 }

@@ -15,10 +15,8 @@
 
     <WindowChrome.WindowChrome>
         <WindowChrome
-            CaptionHeight="30"
             CornerRadius="16"
-            GlassFrameThickness="0"
-            UseAeroCaptionButtons="True" />
+            GlassFrameThickness="0"/>
     </WindowChrome.WindowChrome>
 
     <Grid Background="White">
@@ -75,6 +73,8 @@
                     </StackPanel>
                 </Button>
 
+
+
             </Grid>
 
 
@@ -93,10 +93,36 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+
                 <TextBlock Grid.Row="0" Text="OSD快捷键设置" FontSize="16" Margin="0" HorizontalAlignment="Left" Foreground="#CC1C1E23"/>
-                <Button Grid.Row="0" HorizontalAlignment="Right" Height="24" Width="24"  Background="Transparent" BorderThickness="0" Click="CloseButton_Click">
-                    <Image Source="pack://application:,,,/Resources/关闭.jpg" />
+
+                <Button Grid.Row="0" HorizontalAlignment="Right" Height="24" Width="24" Background="Transparent" BorderThickness="0" Click="CloseButton_Click">
+                    <Button.Clip>
+                        <EllipseGeometry RadiusX="12" RadiusY="12" Center="12,12"/>
+                    </Button.Clip>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Grid>
+                                            <Image Source="pack://application:,,,/Resources/关闭.jpg" Stretch="UniformToFill"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <!-- 禁用鼠标悬停时的视觉效果 -->
+                            <Setter Property="OverridesDefaultStyle" Value="True" />
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <!-- 禁用按下时的高亮效果 -->
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                        </Style>
+                    </Button.Style>
                 </Button>
+
+
+
 
                 <TextBlock Grid.Row="2" Text="设置Teams OSD快捷键的行为，如需进行自定义，请在下方列表内进行选择" Foreground="#991C1E23" LineHeight="16" FontFamily="Microsoft YaHei" FontSize="11.9" />
                 <Grid  Grid.Row="4">
@@ -119,7 +145,7 @@
                                             </Separator.Style>
                                         </Separator>
                                         <StackPanel>
-                                            <RadioButton GroupName="OSDOptions" Content="{Binding Name}"  IsChecked="{Binding IsChecked}"/>
+                                            <RadioButton GroupName="OSDOptions" Content="{Binding Name}"  IsChecked="{Binding IsChecked}" Style="{StaticResource radioButtonStyle}"/>
                                         </StackPanel>
                                     </StackPanel>
 
